@@ -61,6 +61,50 @@ class OrdersController < ApplicationController
     end
   end
 
+    def next_status
+  @order = Order.find(params[:id])
+  case @order.status
+  when @order.status = "new"
+    @order.status = "geprint"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+  when @order.status = "geprint"
+    @order.status = "nabewerking"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+  when @order.status = "nabewerking"
+    @order.status = "Verpakken"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+  else
+    @order.status = "gereed"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+    end
+  end
+
+    def prev_status
+  @order = Order.find(params[:id])
+  case @order.status
+  when @order.status = "gereed"
+    @order.status = "verpakken"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+  when @order.status = "verpakken"
+    @order.status = "nabewerking"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+  when @order.status = "nabewerking"
+    @order.status = "geprint"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+  else
+    @order.status = "new"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
