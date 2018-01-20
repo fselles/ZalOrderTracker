@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_01_20_150740) do
+ActiveRecord::Schema.define(version: 2018_01_20_152137) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2018_01_20_150740) do
     t.string "article_number"
     t.string "article_description"
     t.string "quantity"
+    t.string "price"
     t.string "hrpdf_url"
     t.string "item_comments"
     t.integer "order_id"
@@ -53,6 +54,17 @@ ActiveRecord::Schema.define(version: 2018_01_20_150740) do
     t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.string "carrier"
+    t.string "packaging_details"
+    t.string "shipping_data_url"
+    t.string "shipping_date"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_shippings_on_order_id"
   end
 
 end

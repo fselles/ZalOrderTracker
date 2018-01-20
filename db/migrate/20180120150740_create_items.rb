@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :article_number
       t.string :article_description
       t.string :quantity
+      t.string :price
       t.string :hrpdf_url
       t.string :item_comments
       t.references :order, foreign_key: true

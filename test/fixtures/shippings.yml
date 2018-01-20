@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  carrier: MyString
+  packaging_details: MyString
+  shipping_data_url: MyString
+  shipping_date: MyString
+  order: one
+
+two:
+  carrier: MyString
+  packaging_details: MyString
+  shipping_data_url: MyString
+  shipping_date: MyString
+  order: two
