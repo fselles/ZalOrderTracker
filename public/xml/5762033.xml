@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PPXML xmlns="http://www.peopleandprint.com" SchemaVersion="1.0" DocumentVersion="DWD1516202252.0852" Units="Millimeters">
+	<shippingInformation>
+		<delivery addressQuantity="3" serviceType="recs:postnl-avg" send="direct" estimatedAmountOfPackages="1" additionalInformation="[5762033, Brochures / Magazines geniet, 3 ] - Ref: TEST DPP AUTOMATISERING">
+			<returnAddress street="Postbus" housenumber="37" addition="" city="Hengelo" country="NL" guid="99625b4d5396fdad5c5ee6a8bc1b61d091820d12ed2398eb57d201c8af5c72e2" postalCode="7550 AA" companyName="PostNL"></returnAddress>
+			<receiver customerName="Simon TEST Guchelaar" companyName="" street="Keulenstraat" housenumber="4" addition="" additionalAddressLine="" city="Deventer" country="NL" guid="e6cbadde8bcbe50704e091939c77f3169ba04059eba6195bd9fe1f0fade2e49c" postalCode="7418ET"></receiver>
+			<servicePoint></servicePoint>
+		</delivery>
+	</shippingInformation>
+	<ResourcePool>
+		<DeliveryAddress ID="Customer170367" CompanyName="Simon TEST Guchelaar" City="Deventer" Country="Nederland" CountryCode="NL" PostalCode="7418ET" Street="Keulenstraat 4 " Attn="" PhoneNumber="+31641605231"></DeliveryAddress>
+		<CMYKColor ID="CMYK_Cyan" Cyan="100" Magenta="0" Yellow="0" Black="0"></CMYKColor>
+		<CMYKColor ID="CMYK_Magenta" Cyan="0" Magenta="100" Yellow="0" Black="0"></CMYKColor>
+		<CMYKColor ID="CMYK_Yellow" Cyan="0" Magenta="0" Yellow="100" Black="0"></CMYKColor>
+		<CMYKColor ID="CMYK_Black" Cyan="0" Magenta="0" Yellow="0" Black="100"></CMYKColor>
+		<Ink ID="Ink_Cyan" Name="Cyan" Type="ProcessCyan">
+			<CMYKColorRef rRef="CMYK_Cyan"></CMYKColorRef>
+		</Ink>
+		<Ink ID="Ink_Magenta" Name="Magenta" Type="ProcessMagenta">
+			<CMYKColorRef rRef="CMYK_Magenta"></CMYKColorRef>
+		</Ink>
+		<Ink ID="Ink_Yellow" Name="Yellow" Type="ProcessYellow">
+			<CMYKColorRef rRef="CMYK_Yellow"></CMYKColorRef>
+		</Ink>
+		<Ink ID="Ink_Black" Name="Black" Type="ProcessBlack">
+			<CMYKColorRef rRef="CMYK_Black"></CMYKColorRef>
+		</Ink>
+		<Stock ID="Stock5" Code="GES" Name="houtvrij gesatineerd mc" Thickness="0.2" Weight="135.0" WeightUnit="gsm" Grade="1"></Stock>
+		<ProductGroup ID="ProductGroup11" Name="Brochures / Magazines geniet"></ProductGroup>
+		<ProductOption ID="ProductOption12" Name="12 pagina's" Code="PP12" ProductOptionGroup="5" ProductOptionGroupDescription="aantal pagina's"></ProductOption>
+		<ProductOption ID="ProductOption25" Name="Selfcover" Code="PSEL" ProductOptionGroup="6" ProductOptionGroupDescription="Omslag"></ProductOption>
+		<ProductOption ID="ProductOption460" Name="Geniet gebrocheerd" Code="PGGE" ProductOptionGroup="33" ProductOptionGroupDescription="brochure Brocheren"></ProductOption>
+		<ProductFinish ID="ProductFinish1" Name="Schoonsnijden" Code="ASCH" ProductFinishGroup="1" ProductFinishGroupDescription="Schoonsnijden"></ProductFinish>
+		<ProductFinish ID="ProductFinish5" Name="Gevouwen" Code="AVOU" ProductFinishGroup="5" ProductFinishGroupDescription="vou"></ProductFinish>
+		<Category ID="1" CleanName="Brochures &amp;amp; magazines (geniet)"></Category>
+		<Blocks>
+			<Block ID="31" Name="formats magazines" CleanName="Formaat">
+				<Bricks>
+					<Brick ID="379" Name="A4 portrait" CleanName="A4 staand (210 x 297 mm)"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="4" Name="printing colors" CleanName="Bedrukking">
+				<Bricks>
+					<Brick ID="33" Name="4/4 full color" CleanName="4/4 (Dubbelzijdig full color)"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="2" Name="material" CleanName="Materiaal">
+				<Bricks>
+					<Brick ID="5" Name="woodfree coated glossy mc" CleanName="Houtvrij gesatineerd mc (glanzend)"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="3" Name="weight" CleanName="Gewicht">
+				<Bricks>
+					<Brick ID="11" Name="135 grs" CleanName="135 g/m²"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="30" Name="number of pages" CleanName="Aantal pagina's">
+				<Bricks>
+					<Brick ID="366" Name="12 pages" CleanName="12 pagina's"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="29" Name="magazine cover" CleanName="Brochure omslag">
+				<Bricks>
+					<Brick ID="357" Name="selfcover" CleanName="Selfcover"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="10" Name="finishing options" CleanName="Afwerking">
+				<Bricks>
+					<Brick ID="227" Name="without luxury finishing" CleanName="Zonder luxe-afwerking"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="6" Name="quantity" CleanName="Oplage">
+				<Bricks>
+					<Brick ID="42" Name="3" CleanName="3"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="9" Name="delivery time" CleanName="Levertijd">
+				<Bricks>
+					<Brick ID="217" Name="normal" CleanName="Standaard levering"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="5" Name="printing process" CleanName="Druktype">
+				<Bricks>
+					<Brick ID="19" Name="digital" CleanName="Full color digitaal"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="131" Name="finishing magazines">
+				<Bricks>
+					<Brick ID="1683" Name="saddlestitched" CleanName="Geniet gebrocheerd"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="34" Name="folding method" CleanName="Vouwwijze">
+				<Bricks>
+					<Brick ID="1691" Name="folded" CleanName="Gevouwen"></Brick>
+				</Bricks>
+			</Block>
+			<Block ID="16" Name="trimming" CleanName="Schoonsnijden">
+				<Bricks>
+					<Brick ID="251" Name="trimming" CleanName="Schoonsnijden"></Brick>
+				</Bricks>
+			</Block>
+		</Blocks>
+	</ResourcePool>
+	<ProductPool>
+		<Product ID="Product5762033" MIS_ID="5762033" TemplateID="5" RequiredQuantity="3" Multiplier="1" Personalize="false" Description="Brochures en magazines (geniet), A4 staand (210 x 297 mm), 4/4 (Dubbelzijdig full color), Houtvrij gesatineerd mc (glanzend), 135 g/m², 12 pagina's, Selfcover, Zonder luxe-afwerking, 3 stuks, Standaard levering, Full color digitaal, Geniet gebrocheerd, Gevouwen, Schoonsnijden" Notes=", ,  -" Reprint="" CustomerReference="TEST DPP AUTOMATISERING" PurchaseReference="DDB3109283" CustomerOrder="DDB3109283" CustomerOrderDate="2018-01-16 15:15:04" ToBeShipped="2018-01-19" DueDate="2018-01-22" Delivery="1" ShippingType="1" Portal="1" PurchasePrice="7.43" ContentFile="UNKNOWN OR NAS" FinishedTrimWidth="210" FinishedTrimHeight="297" ColorsFront="4" ColorsBack="4" DrukwerkTypeId="2" DrukwerkTypeCode="FD" DrukwerkTypeOmschrijving="Full color digitaal" ProductArtikelenId="" OrderRegelVerzamelId="" SemiCustom="n" Custom="n" NewFlow="y" ProductCode="CS:1.1-B:5.11.19.33.42.217.227.251.357.366.379.1683.1691" Sku="" ProductFlatHeight="297" ProductFlatWidth="210" ProductFinishedWidth="210" ProductFinishedHeight="297" ProductFormat="A4 staand (210 x 297 mm)" ProductOrientation="" ProductMaterial="Houtvrij gesatineerd mc (glanzend)" ProductMaterialWeight="135 g/m²">
+			<ComponentPool>
+				<Component>
+					<Category ID="1" CleanName="Brochures &amp;amp; magazines (geniet)"></Category>
+					<blocks>
+						<block ID="31" name="formats magazines" CleanName="Formaat">
+							<bricks>
+								<brick ID="379" name="A4 portrait" CleanName="A4 staand (210 x 297 mm)"></brick>
+							</bricks>
+						</block>
+						<block ID="4" name="printing colors" CleanName="Bedrukking">
+							<bricks>
+								<brick ID="33" name="4/4 full color" CleanName="4/4 (Dubbelzijdig full color)"></brick>
+							</bricks>
+						</block>
+						<block ID="2" name="material" CleanName="Materiaal">
+							<bricks>
+								<brick ID="5" name="woodfree coated glossy mc" CleanName="Houtvrij gesatineerd mc (glanzend)"></brick>
+							</bricks>
+						</block>
+						<block ID="3" name="weight" CleanName="Gewicht">
+							<bricks>
+								<brick ID="11" name="135 grs" CleanName="135 g/m²"></brick>
+							</bricks>
+						</block>
+						<block ID="30" name="number of pages" CleanName="Aantal pagina's">
+							<bricks>
+								<brick ID="366" name="12 pages" CleanName="12 pagina's"></brick>
+							</bricks>
+						</block>
+						<block ID="29" name="magazine cover" CleanName="Brochure omslag">
+							<bricks>
+								<brick ID="357" name="selfcover" CleanName="Selfcover"></brick>
+							</bricks>
+						</block>
+						<block ID="10" name="finishing options" CleanName="Afwerking">
+							<bricks>
+								<brick ID="227" name="without luxury finishing" CleanName="Zonder luxe-afwerking"></brick>
+							</bricks>
+						</block>
+						<block ID="6" name="quantity" CleanName="Oplage">
+							<bricks>
+								<brick ID="42" name="3" CleanName="3"></brick>
+							</bricks>
+						</block>
+						<block ID="9" name="delivery time" CleanName="Levertijd">
+							<bricks>
+								<brick ID="217" name="normal" CleanName="Standaard levering"></brick>
+							</bricks>
+						</block>
+						<block ID="5" name="printing process" CleanName="Druktype">
+							<bricks>
+								<brick ID="19" name="digital" CleanName="Full color digitaal"></brick>
+							</bricks>
+						</block>
+						<block ID="131" name="finishing magazines">
+							<bricks>
+								<brick ID="1683" name="saddlestitched" CleanName="Geniet gebrocheerd"></brick>
+							</bricks>
+						</block>
+						<block ID="34" name="folding method" CleanName="Vouwwijze">
+							<bricks>
+								<brick ID="1691" name="folded" CleanName="Gevouwen"></brick>
+							</bricks>
+						</block>
+						<block ID="16" name="trimming" CleanName="Schoonsnijden">
+							<bricks>
+								<brick ID="251" name="trimming" CleanName="Schoonsnijden"></brick>
+							</bricks>
+						</block>
+					</blocks>
+					<parameters></parameters>
+					<StockRef rRef="Stock5"></StockRef>
+					<ProductGroupRef rRef="ProductGroup11"></ProductGroupRef>
+					<ProductOptionRef rRef="ProductOption12"></ProductOptionRef>
+					<ProductOptionRef rRef="ProductOption25"></ProductOptionRef>
+					<ProductOptionRef rRef="ProductOption460"></ProductOptionRef>
+					<ProductFinishRef rRef="ProductFinish1"></ProductFinishRef>
+					<ProductFinishRef rRef="ProductFinish5"></ProductFinishRef>
+				</Component>
+			</ComponentPool>
+			<PagePool>
+				<PageDefaults></PageDefaults>
+				<Page Number="1" Folio="Front" BleedTop="3" BleedLeft="3" BleedRight="3" BleedBottom="3">
+					<InkRef rRef="Ink_Cyan"></InkRef>
+					<InkRef rRef="Ink_Magenta"></InkRef>
+					<InkRef rRef="Ink_Yellow"></InkRef>
+					<InkRef rRef="Ink_Black"></InkRef>
+				</Page>
+				<Page Number="2" Folio="Back" BleedTop="3" BleedLeft="3" BleedRight="3" BleedBottom="3">
+					<InkRef rRef="Ink_Cyan"></InkRef>
+					<InkRef rRef="Ink_Magenta"></InkRef>
+					<InkRef rRef="Ink_Yellow"></InkRef>
+					<InkRef rRef="Ink_Black"></InkRef>
+				</Page>
+			</PagePool>
+			<FilePool></FilePool>
+			<DeliveryAddressRef rRef="Customer170367"></DeliveryAddressRef>
+		</Product>
+	</ProductPool>
+</PPXML>

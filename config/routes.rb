@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   root 'orders#index'
 
   get 'importxml' => 'import#importxml'

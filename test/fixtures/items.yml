@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article_number: MyString
+  article_description: MyString
+  quantity: MyString
+  hrpdf_url: MyString
+  item_comments: MyString
+  order: one
+
+two:
+  article_number: MyString
+  article_description: MyString
+  quantity: MyString
+  hrpdf_url: MyString
+  item_comments: MyString
+  order: two
