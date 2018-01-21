@@ -5,7 +5,8 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :shippings
 
   def self.search(search)
-    where("order_number LIKE ? OR despatch_date LIKE ? OR status LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    joins(:items)
+    .where("order_number LIKE ? OR despatch_date LIKE ? OR status LIKE ? OR items.article_description LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 

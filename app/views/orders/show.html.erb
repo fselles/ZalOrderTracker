@@ -25,5 +25,26 @@
   <%= @order.comments %>
 </p>
 
+<% @order.items.each do |item| %>
+<p>
+<strong>Article description:</strong>
+<%= item.article_description %>
+</p>
+<p>
+<strong>HR PDF:</strong>
+<%= item.hrpdf_url %>
+</p>
+<% end %>
+
+<% @order.shippings.each do |shipping| %>
+<p>
+<strong>Carrier:</strong>
+<%= shipping.carrier %>
+</p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Back', orders_path %> |
+<%= link_to 'Verwijderen', order_path(@order), method: :delete, data: { confirm: 'Zeker weten?' },
+                                                                     :class => "btn btn-secondary" %>
