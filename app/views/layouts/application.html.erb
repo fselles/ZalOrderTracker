@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ZalOrderTracker</title>
+    <title>Zalsman Print XML OrderTracker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +12,21 @@
   </head>
 
   <body>
-    <%= yield %>
+  <!-- Render topbar partial in views/shared -->
+  <%= render "/Shared/topbar" %>
+
+  <div class="container">
+       <div class="row">
+          <div class="col-sm-12">
+            <div>
+              <% flash_messages %>
+            </div>
+            <div>
+            </div>
+                <%= yield %>
+          </div>
+        </div>
+      </div>
+   <%= render "/Shared/footer" %>
   </body>
 </html>

@@ -1,10 +1,15 @@
 class OrdersController < ApplicationController
+  before_action :require_signin
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    if params[:search]
+      @orders = Order.search(params[:search])
+    else
+      @orders = Order.all
+    end
   end
 
   # GET /orders/1

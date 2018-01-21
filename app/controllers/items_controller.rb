@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+before_action :require_signin
 
   def create
     @order = Order.find(params[:order_id])

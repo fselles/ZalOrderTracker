@@ -1,0 +1,17 @@
+<% if object.errors.any? %>
+<section id="errors">
+  <header>
+    <h3>
+      Foutje! De <%= object.class.name.titleize.downcase %> kon niet worden opgeslagen.
+    </h3>
+    <h4>
+      Corrigeer aub de volgende fouten <%= pluralize(object.errors.count, "error") %>:
+    </h4>
+  </header>
+  <ul>
+    <% object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %>

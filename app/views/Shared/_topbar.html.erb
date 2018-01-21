@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+
+  <a class="navbar-brand" href="/"><%= image_tag 'Zalsmanprint2.png' %></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", root_url, :class => "nav-link"  %> <span class="sr-only">(current)</span></a>
+      </li>
+      <% if current_user %>
+      <li class="nav-item">
+        <%= link_to "Orders", orders_path, :class => "nav-link"  %>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">Acties
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto">
+      <% if current_user %>
+        <li class="nav-item">
+        <%= link_to current_user.name, current_user, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Uitloggen', session_path, method: :delete, :class => "nav-link" %>
+      </li>
+      <% end %>
+        <% if current_user && current_user.admin? %>
+        <li class="nav-item">
+        <%= link_to "Gebruikers instellingen", users_path, :class => "nav-link"  %>
+      </li>
+      <% end %>
+      </ul>
+      <% if current_user %>
+       <%= form_tag(orders_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Zoeken", :class=> "form-control mr-sm-2" %>
+        <%= submit_tag "Zoeken", :name => nil, :class => "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
+      <% end %>
+    </form>
+  </div>
+</nav>

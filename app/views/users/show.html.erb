@@ -1,0 +1,16 @@
+<h3>User details</h3>
+<div>
+    <h4><%= @user.name %></h4>
+    <h4><%= @user.company %></h4>
+    <h4><%= mail_to(@user.email) %></h4>
+</div>
+<div class="btn-group" role="group">
+<% if current_user?(@user) || current_user.admin? %>
+<%= link_to 'Account aanpassen', edit_user_path(@user), :class => "btn btn-secondary" %>
+<%= link_to 'Account verwijderen', @user,
+          method: :delete,
+          data: { confirm: 'Weet je zeker dat je dit account wilt verwijderen?' },
+          :class => "btn btn-secondary" %>
+<% end %>
+</div>
+

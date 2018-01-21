@@ -1,5 +1,5 @@
 class ImportController < ApplicationController
-
+before_action :require_signin
 
   def importxml
       # Alle bestanden ophalen uit de directory
