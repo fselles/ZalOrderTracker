@@ -10,12 +10,25 @@ namespace :import do
     # Inhoud xml bestand parsen in variabele doc
     doc = Nokogiri::XML(File.read(file))
     # Xml structuur uitlezen met xpath vanaf root niveau en in lokale variabele record stoppen
-      doc.xpath("/").each do |row|
-        Order.create(
+      orderdetail = doc.xpath("/").each do |record|
+        order = Order.create(
         :customer => "DWD",
-        :order_number => row.at('//@MIS_ID'),
-        :despatch_date => row.at('//@ToBeShipped'),
+        :order_number => record.at('//@CustomerOrder'),
+        :despatch_date => record.at('//@ToBeShipped'),
         :status => "new" )
+
+        item = order.items.new(
+        :article_number => record.at('//@ID'),
+        :article_description => record.at('//@Description'),
+        :item_comments => record.at('//@Description'),
+        :quantity => record.at('//@RequiredQuantity'),
+        :hrpdf_url => record.at('//@ContentFile') )
+        item.save
+
+        shipping = order.shippings.new(
+        :carrier=> record.at('//@serviceType'),
+        :shipping_date => record.at('//@ToBeShipped') )
+        shipping.save
       end
     # FileUtils.rm(file)
     end
