@@ -47,7 +47,8 @@
       <% end %>
       </ul>
       <% if current_user %>
-       <%= form_tag(orders_path, :method => "get", id: "search-form") do %>
+        <%= form_tag(orders_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :status, params[:status], placeholder: "Status", :class=> "form-control mr-sm-2" %>
         <%= text_field_tag :search, params[:search], placeholder: "Zoeken", :class=> "form-control mr-sm-2" %>
         <%= submit_tag "Zoeken", :name => nil, :class => "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>

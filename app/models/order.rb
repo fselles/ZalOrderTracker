@@ -9,5 +9,9 @@ class Order < ApplicationRecord
     .where("order_number LIKE ? OR despatch_date LIKE ? OR status LIKE ? OR items.article_description LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
+  def self.status(status)
+    where("status LIKE ? ", "%#{status}%")
+  end
+
 
 end

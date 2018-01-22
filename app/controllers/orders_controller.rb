@@ -7,10 +7,10 @@ class OrdersController < ApplicationController
   def index
     if params[:search]
       # @orders = Order.search(params[:search])
-      @orders = Order.search(params[:search]).paginate(page: params[:page], per_page: 5).order('id DESC')
+      @orders = Order.status(params[:status]).search(params[:search]).paginate(page: params[:page], per_page: 5).order('id DESC')
     else
       # @orders = Order.all
-      @orders = Order.paginate(page: params[:page], per_page: 5).order('id DESC')
+      @orders = Order.status(params[:status]).paginate(page: params[:page], per_page: 5).order('id DESC')
     end
   end
 
