@@ -6,9 +6,11 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     if params[:search]
-      @orders = Order.search(params[:search])
+      # @orders = Order.search(params[:search])
+      @orders = Order.search(params[:search]).paginate(page: params[:page], per_page: 5).order('id DESC')
     else
-      @orders = Order.all
+      # @orders = Order.all
+      @orders = Order.paginate(page: params[:page], per_page: 5).order('id DESC')
     end
   end
 
@@ -71,10 +73,14 @@ class OrdersController < ApplicationController
   @order = Order.find(params[:id])
   case @order.status
   when @order.status = "new"
-    @order.status = "geprint"
+    @order.status = "prepress"
     @order.save
     redirect_to orders_url, notice: 'Order was successfully updated'
-  when @order.status = "geprint"
+  when @order.status = "prepress"
+    @order.status = "print"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+  when @order.status = "print"
     @order.status = "nabewerking"
     @order.save
     redirect_to orders_url, notice: 'Order was successfully updated'
@@ -101,7 +107,11 @@ class OrdersController < ApplicationController
     @order.save
     redirect_to orders_url, notice: 'Order was successfully updated'
   when @order.status = "nabewerking"
-    @order.status = "geprint"
+    @order.status = "print"
+    @order.save
+    redirect_to orders_url, notice: 'Order was successfully updated'
+  when @order.status = "print"
+    @order.status = "prepress"
     @order.save
     redirect_to orders_url, notice: 'Order was successfully updated'
   else
