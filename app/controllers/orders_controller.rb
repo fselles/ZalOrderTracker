@@ -7,10 +7,20 @@ class OrdersController < ApplicationController
   def index
     if params[:search]
       # @orders = Order.search(params[:search])
-      @orders = Order.status(params[:status]).search(params[:search]).paginate(page: params[:page], per_page: 5).order('id DESC')
+      @orders = Order.active.status(params[:status]).search(params[:search]).paginate(page: params[:page], per_page: 10).order('id ASC')
     else
       # @orders = Order.all
-      @orders = Order.status(params[:status]).paginate(page: params[:page], per_page: 5).order('id DESC')
+      @orders = Order.active.status(params[:status]).paginate(page: params[:page], per_page: 10).order('id ASC')
+    end
+  end
+
+  def archief
+    if params[:search]
+      # @orders = Order.search(params[:search])
+      @orders = Order.archive.status(params[:status]).search(params[:search]).paginate(page: params[:page], per_page: 10).order('id ASC')
+    else
+      # @orders = Order.all
+      @orders = Order.archive.status(params[:status]).paginate(page: params[:page], per_page: 10).order('id ASC')
     end
   end
 
@@ -36,7 +46,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to @order, notice: 'Order is succesvol aangemaakt.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -50,7 +60,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
+        format.html { redirect_to @order, notice: 'Order is succesvol geupdate.' }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit }
@@ -64,7 +74,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: 'Order is succesvol verwijderd.' }
       format.json { head :no_content }
     end
   end
@@ -72,26 +82,26 @@ class OrdersController < ApplicationController
     def next_status
   @order = Order.find(params[:id])
   case @order.status
-  when @order.status = "new"
+  when @order.status = "nieuw"
     @order.status = "prepress"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
   when @order.status = "prepress"
     @order.status = "print"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
   when @order.status = "print"
     @order.status = "nabewerking"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
   when @order.status = "nabewerking"
     @order.status = "Verpakken"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
   else
     @order.status = "gereed"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
     end
   end
 
@@ -101,23 +111,23 @@ class OrdersController < ApplicationController
   when @order.status = "gereed"
     @order.status = "verpakken"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
   when @order.status = "verpakken"
     @order.status = "nabewerking"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
   when @order.status = "nabewerking"
     @order.status = "print"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
   when @order.status = "print"
     @order.status = "prepress"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
   else
-    @order.status = "new"
+    @order.status = "nieuw"
     @order.save
-    redirect_to orders_url, notice: 'Order was successfully updated'
+    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
     end
   end
 

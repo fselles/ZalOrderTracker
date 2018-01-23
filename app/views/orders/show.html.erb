@@ -1,17 +1,16 @@
-<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Customer:</strong>
+  <strong>Klant:</strong>
   <%= @order.customer %>
 </p>
 
 <p>
-  <strong>Order number:</strong>
+  <strong>Order nummer:</strong>
   <%= @order.order_number %>
 </p>
 
 <p>
-  <strong>Despatch date:</strong>
+  <strong>Verzend datum:</strong>
   <%= @order.despatch_date %>
 </p>
 
@@ -21,18 +20,24 @@
 </p>
 
 <p>
-  <strong>Comments:</strong>
+  <strong>Opmerkingen:</strong>
   <%= @order.comments %>
 </p>
 
 <% @order.items.each do |item| %>
 <p>
-<strong>Article description:</strong>
+<strong>Omschrijving:</strong>
 <%= item.article_description %>
 </p>
+
+<p>
+<strong>Prijs:</strong>
+<%= number_to_currency(item.price.to_f, :unit => "€ ") %>
+</p>
+
 <p>
 <strong>HR PDF:</strong>
-<%= item.hrpdf_url %>
+<%= link_to 'Download PDF', item.hrpdf_url, target: '_blank' if item.hrpdf_url? %>
 </p>
 <% end %>
 
@@ -43,8 +48,15 @@
 </p>
 <% end %>
 
+<p>
+  <strong>Laatst gewijzigd:</strong>
+  <%= @order.updated_at.strftime("%A, %d %b %Y %l:%M %p") %>
+</p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %> |
-<%= link_to 'Verwijderen', order_path(@order), method: :delete, data: { confirm: 'Zeker weten?' },
+
+<%= link_to 'Aanpassen', edit_order_path(@order), :class => "btn btn-secondary" %> |
+<%= link_to 'Terug', orders_path, :class => "btn btn-secondary" %>
+<% if current_user && current_user.admin? %>
+ | <%= link_to 'Verwijderen', order_path(@order), method: :delete, data: { confirm: 'Zeker weten?' },
                                                                      :class => "btn btn-secondary" %>
+<% end %>

@@ -5,7 +5,7 @@
     <h4><%= mail_to(@user.email) %></h4>
 </div>
 <div class="btn-group" role="group">
-<% if current_user?(@user) || current_user.admin? %>
+<% if current_user && current_user.admin? %>
 <%= link_to 'Account aanpassen', edit_user_path(@user), :class => "btn btn-secondary" %>
 <%= link_to 'Account verwijderen', @user,
           method: :delete,

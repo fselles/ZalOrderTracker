@@ -1,39 +1,54 @@
 <%= form_with(model: order, local: true) do |form| %>
  <%= render "Shared/errors", object: order %>
 
+<form>
+  <% if current_user && current_user.admin? %>
   <div class="field">
-    <%= form.label :customer %>
-    <%= form.text_field :customer %>
+    <%= form.label :customer, class: 'form-control-label' %>
+    <%= form.text_field :customer, size: 40, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :order_number %>
-    <%= form.text_field :order_number %>
+    <%= form.label :order_number, class: 'form-control-label' %>
+    <%= form.text_field :order_number, size: 40, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :despatch_date %>
-    <%= form.text_field :despatch_date %>
+    <%= form.label :despatch_date, class: 'form-control-label' %>
+    <%= form.text_field :despatch_date, size: 40, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.label :status, class: 'form-control-label' %>
+    <%= form.text_field :status, size: 40, class: 'form-control' %>
   </div>
-
+  <% end %>
   <div class="field">
-    <%= form.label :comments %>
-    <%= form.text_area :comments %>
+    <%= form.label :comments, class: 'form-control-label' %>
+    <%= form.text_area :comments, cols: "5", rows: "5", class: 'form-control' %>
   </div>
 
+  <% if current_user && current_user.admin? %>
   <%= form.fields_for :items do |item_form| %>
     <div class="field">
-      <%= item_form.label :article_description %>
-      <%= item_form.text_area :article_description %>
+      <%= item_form.label :article_description, class: 'form-control-label' %>
+      <%= item_form.text_area :article_description, cols: "5", rows: "5", class: 'form-control' %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <% end %>
+  <br>
+      <div>
+      <% if @order.new_record? %>
+        <%= form.submit "Order opslaan", :class => "btn btn-secondary" %>
+      <% else %>
+        <%= form.submit "Order updaten", :class => "btn btn-secondary" %>
+      <% end %>
+      </div>
+  </form>
 <% end %>
+
+<br>
+<br>
+
+
+

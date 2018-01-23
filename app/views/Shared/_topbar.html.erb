@@ -23,6 +23,8 @@
         aria-haspopup="true" aria-expanded="false">Acties
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to "Orders", orders_path, :class => "dropdown-item"  %>
+          <%= link_to "Archief", archief_path, :class => "dropdown-item"  %>
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -48,7 +50,11 @@
       </ul>
       <% if current_user %>
         <%= form_tag(orders_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :status, params[:status], placeholder: "Status", :class=> "form-control mr-sm-2" %>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" style="padding-right: 3px;" >Orderstatus</li>
+        </ul>
+        <%= select_tag "status", options_for_select(Order::ORDERSTATUS, params[:status]), :class=> "form-control mr-sm-2" %>
+
         <%= text_field_tag :search, params[:search], placeholder: "Zoeken", :class=> "form-control mr-sm-2" %>
         <%= submit_tag "Zoeken", :name => nil, :class => "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>

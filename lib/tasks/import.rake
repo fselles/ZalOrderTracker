@@ -13,16 +13,17 @@ namespace :import do
       orderdetail = doc.xpath("/").each do |record|
         order = Order.create(
         :customer => "DWD",
-        :order_number => record.at('//@CustomerOrder'),
+        :order_number => record.at('//@MIS_ID'),
         :despatch_date => record.at('//@ToBeShipped'),
-        :status => "new" )
+        :status => "nieuw" )
 
         item = order.items.new(
         :article_number => record.at('//@ID'),
         :article_description => record.at('//@Description'),
         :item_comments => record.at('//@Description'),
+        :price => record.at('//@PurchasePrice'),
         :quantity => record.at('//@RequiredQuantity'),
-        :hrpdf_url => record.at('//@ContentFile') )
+        :hrpdf_url => record.at('//@DownloadUrl') )
         item.save
 
         shipping = order.shippings.new(

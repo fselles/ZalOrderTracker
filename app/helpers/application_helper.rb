@@ -16,12 +16,5 @@ module ApplicationHelper
     nil
   end
 
-  def find_company_name(job)
-    task = job.tasks.order(:updated_at).last
-    if !task.nil?
-      user = User.find_by_name(task.contactperson)
-      user.company
-    end
-  end
 
 end

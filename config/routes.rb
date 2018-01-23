@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'prev_status/:id' => 'orders#prev_status', as: :prev_status
   get 'aanmelden' => 'users#new'
   get "inloggen" => "sessions#new"
+  get 'archief' => "orders#archief"
 
 
 
