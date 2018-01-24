@@ -3,7 +3,8 @@ before_action :require_signin
 
   def importxml
       # Alle bestanden ophalen uit de directory
-    Dir["#{Rails.root}/public/xml/*.xml"].each do |file|
+    #Dir["#{Rails.root}/public/xml/*.xml"].each do |file|
+    Dir["/smbshare/xml_input/*.xml"].each do |file|
       # Inhoud xml bestand parsen in variabele doc
       doc = Nokogiri::XML(File.read(file))
       # Xml structuur uitlezen met xpath vanaf root niveau en in lokale variabele record stoppen
