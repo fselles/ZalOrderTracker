@@ -30,7 +30,7 @@ before_action :require_signin
       end
 
 
-      # FileUtils.rm(file)
+      FileUtils.rm(file)
     end
     respond_to do |format|
         format.html { redirect_to root_url, notice: "File has been processed successfully" }

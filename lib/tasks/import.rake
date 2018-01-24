@@ -31,7 +31,7 @@ namespace :import do
         :shipping_date => record.at('//@ToBeShipped') )
         shipping.save
       end
-    # FileUtils.rm(file)
+    FileUtils.rm(file)
     end
   end
 end
