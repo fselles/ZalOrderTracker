@@ -17,7 +17,6 @@ before_action :require_signin
         item = order.items.new(
         :article_number => record.at('//@ID'),
         :article_description => record.at('//@Description'),
-        :item_comments => record.at('//@Description'),
         :price => record.at('//@PurchasePrice'),
         :quantity => record.at('//@RequiredQuantity'),
         :hrpdf_url => record.at('//@DownloadUrl') )

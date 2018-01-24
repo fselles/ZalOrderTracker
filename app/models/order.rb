@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  ORDERSTATUS= ['', 'new', 'prepress', 'print', 'nabewerking', 'verpakken']
+  ORDERSTATUS= ['', 'nieuw', 'prepress', 'print', 'nabewerking', 'verpakken']
   has_many :shippings, dependent: :destroy
   has_many :items, dependent: :destroy
   accepts_nested_attributes_for :items
