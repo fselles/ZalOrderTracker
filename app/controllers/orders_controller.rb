@@ -85,23 +85,23 @@ class OrdersController < ApplicationController
   when @order.status = "nieuw"
     @order.status = "prepress"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   when @order.status = "prepress"
     @order.status = "print"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   when @order.status = "print"
     @order.status = "nabewerking"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   when @order.status = "nabewerking"
     @order.status = "Verpakken"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   else
     @order.status = "gereed"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
     end
   end
 
@@ -111,23 +111,23 @@ class OrdersController < ApplicationController
   when @order.status = "gereed"
     @order.status = "verpakken"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   when @order.status = "verpakken"
     @order.status = "nabewerking"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   when @order.status = "nabewerking"
     @order.status = "print"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   when @order.status = "print"
     @order.status = "prepress"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   else
     @order.status = "nieuw"
     @order.save
-    redirect_to orders_url, notice: 'Order is succesvol geupdate.'
+    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
     end
   end
 

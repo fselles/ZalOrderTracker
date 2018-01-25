@@ -35,8 +35,8 @@
 
         <td><%= order.comments %></td>
 
-        <td><%= link_to 'Vorige status', prev_status_path(order), :class => "btn btn-secondary btn-sm"  %></td>
-        <td><%= link_to 'Volgende status', next_status_path(order), :class => "btn btn-secondary btn-sm"  %></td>
+        <td><%= link_to 'Vorige status', prev_status_path(order, :status => params[:status], :search => params[:search]), :class => "btn btn-secondary btn-sm"  %></td>
+        <td><%= link_to 'Volgende status', next_status_path(order, :status => params[:status], :search => params[:search]), :class => "btn btn-secondary btn-sm"  %></td>
       </tr>
     <% end %>
   </tbody>
