@@ -15,12 +15,22 @@ class OrdersController < ApplicationController
   end
 
   def archief
-    if params[:search]
-      # @orders = Order.search(params[:search])
-      @orders = Order.archive.status(params[:status]).search(params[:search]).paginate(page: params[:page], per_page: 10).order('id ASC')
+    if  request.format == "xls"
+      if params[:search]
+        # @orders = Order.search(params[:search])
+        @orders = Order.archive.status(params[:status]).search(params[:search]).order('id ASC')
+      else
+        # @orders = Order.all
+        @orders = Order.archive.status(params[:status]).order('id ASC')
+      end
     else
-      # @orders = Order.all
-      @orders = Order.archive.status(params[:status]).paginate(page: params[:page], per_page: 10).order('id ASC')
+      if params[:search]
+        # @orders = Order.search(params[:search])
+        @orders = Order.archive.status(params[:status]).search(params[:search]).paginate(page: params[:page], per_page: 10).order('id ASC')
+      else
+        # @orders = Order.all
+        @orders = Order.archive.status(params[:status]).paginate(page: params[:page], per_page: 10).order('id ASC')
+      end
     end
     respond_to do |format|
       format.html
