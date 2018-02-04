@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  ORDERSTATUS= ['', 'nieuw', 'prepress', 'print', 'nabewerking', 'verpakken']
+  ORDERSTATUS= ['', 'nieuw', 'prepress', 'print']
   has_many :shippings, dependent: :destroy
   has_many :items, dependent: :destroy
   accepts_nested_attributes_for :items
@@ -15,6 +15,5 @@ class Order < ApplicationRecord
   def self.status(status)
     where("status LIKE ? ", "%#{status}%")
   end
-
 
 end

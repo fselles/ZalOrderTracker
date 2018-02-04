@@ -22,6 +22,10 @@ class OrdersController < ApplicationController
       # @orders = Order.all
       @orders = Order.archive.status(params[:status]).paginate(page: params[:page], per_page: 10).order('id ASC')
     end
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
   # GET /orders/1
@@ -90,14 +94,6 @@ class OrdersController < ApplicationController
     @order.status = "print"
     @order.save
     redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
-  when @order.status = "print"
-    @order.status = "nabewerking"
-    @order.save
-    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
-  when @order.status = "nabewerking"
-    @order.status = "Verpakken"
-    @order.save
-    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
   else
     @order.status = "gereed"
     @order.save
@@ -109,14 +105,6 @@ class OrdersController < ApplicationController
   @order = Order.find(params[:id])
   case @order.status
   when @order.status = "gereed"
-    @order.status = "verpakken"
-    @order.save
-    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
-  when @order.status = "verpakken"
-    @order.status = "nabewerking"
-    @order.save
-    redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'
-  when @order.status = "nabewerking"
     @order.status = "print"
     @order.save
     redirect_to orders_url(:status => params[:status], :search => params[:search]), notice: 'Order is succesvol geupdate.'

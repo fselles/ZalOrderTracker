@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Klant</Data></Cell>
+        <Cell><Data ss:Type="String">Ordernummer</Data></Cell>
+        <Cell><Data ss:Type="String">verzenddatum</Data></Cell>
+        <Cell><Data ss:Type="String">Status</Data></Cell>
+        <Cell><Data ss:Type="String">Opmerkingen</Data></Cell>
+        <Cell><Data ss:Type="String">Datum aangemaakt</Data></Cell>
+        <Cell><Data ss:Type="String">Laatst gewijzigd</Data></Cell>
+        <Cell><Data ss:Type="String">Artikelnummer</Data></Cell>
+        <Cell><Data ss:Type="String">Artikel Omschrijving</Data></Cell>
+        <Cell><Data ss:Type="String">Bestelhoeveelheid</Data></Cell>
+        <Cell><Data ss:Type="String">Prijs</Data></Cell>
+        <Cell><Data ss:Type="String">HR PDF URL</Data></Cell>
+        <Cell><Data ss:Type="String">Opmerkingen 2</Data></Cell>
+        <Cell><Data ss:Type="String">Carrier</Data></Cell>
+        <Cell><Data ss:Type="String">Verzenddatum 2</Data></Cell>
+      </Row>
+    <% @orders.each do |order| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= order.customer %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.order_number %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.despatch_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.status %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.comments %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.created_at %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.updated_at %></Data></Cell>
+        <%= order.items.each do |item| %>
+        <Cell><Data ss:Type="String"><%= item.article_number %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= item.article_description %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= item.quantity %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= item.price %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= item.hrpdf_url %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= item.item_comments %></Data></Cell>
+        <% end %>
+        <%= order.shippings.each do |shipping| %>
+        <Cell><Data ss:Type="String"><%= shipping.carrier %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= shipping.shipping_date %></Data></Cell>
+        <% end %>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+
