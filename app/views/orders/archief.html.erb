@@ -51,9 +51,9 @@
   <%= will_paginate @jobs, :container => false %>
 </div>
 <br>
-
+<% if current_user && current_user.admin? %>
 <p>
   Download:
   <%= link_to "Excel", archief_path(format: "xls") %>
 </p>
-
+<% end %>
